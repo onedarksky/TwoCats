@@ -3,321 +3,294 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TwoCats｜溫暖日系貓生活選物</title>
+  <title>TwoCats｜貓咪生活選物品牌</title>
 
-  <!-- 可選：日系感字體（Google Fonts），不想用可刪 -->
+  <!-- 日系乾淨字體（可保留；不想用可刪） -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg: #FFFBF4;        /* 奶油米 */
-      --paper: #FFFFFF;     /* 紙白 */
-      --ink: #2B2A28;       /* 墨黑 */
-      --muted: #6B6862;     /* 淡墨 */
-      --line: #EFE7DA;      /* 柔線 */
-      --accent: #E7A96B;    /* 焦糖 */
-      --accent2: #D97966;   /* 夕陽紅 */
-      --shadow: 0 10px 30px rgba(43,42,40,.08);
-      --radius: 18px;
+      --bg:#FFFBF5;          /* 奶油底 */
+      --paper:#FFFFFF;       /* 紙白卡片 */
+      --ink:#1F1E1C;         /* 品牌墨黑 */
+      --muted:#5F5B55;       /* 內文灰 */
+      --line:#EFE6D8;        /* 分隔線 */
+      --accent:#C98952;      /* 焦糖 */
+      --accent2:#B95D55;     /* 夕陽紅（輕用） */
+      --radius:20px;
+      --shadow: 0 14px 40px rgba(31,30,28,.08);
     }
 
-    *{ box-sizing: border-box; }
-    html, body{ margin:0; padding:0; }
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; }
     body{
-      font-family: "Zen Maru Gothic", system-ui, -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
-      background: radial-gradient(1200px 600px at 10% 0%, #FFF1DF 0%, transparent 60%),
-                  radial-gradient(900px 500px at 90% 10%, #FFE7E2 0%, transparent 55%),
-                  var(--bg);
-      color: var(--ink);
-      line-height: 1.75;
+      font-family:"Noto Sans TC", system-ui, -apple-system, "PingFang TC", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1100px 520px at 15% 0%, rgba(255,230,205,.65) 0%, transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(255,216,210,.55) 0%, transparent 55%),
+        var(--bg);
+      line-height:1.75;
+      letter-spacing:.2px;
     }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width: 1100px; margin:0 auto; padding: 22px 18px 72px; }
 
-    a{ color: inherit; text-decoration: none; }
-    .wrap{ max-width: 1040px; margin: 0 auto; padding: 22px 18px 72px; }
-
-    /* Top nav */
+    /* Topbar */
     .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap: 12px;
-      position: sticky; top: 0;
+      position: sticky;
+      top: 0;
+      z-index: 20;
       padding: 14px 0;
-      background: linear-gradient(to bottom, rgba(255,251,244,.92), rgba(255,251,244,.50));
+      background: linear-gradient(to bottom, rgba(255,251,245,.92), rgba(255,251,245,.55));
       backdrop-filter: blur(10px);
-      z-index: 10;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
     }
     .brand{
-      display:flex; align-items:center; gap: 10px;
+      display:flex; align-items:center; gap: 12px;
+      min-width: 220px;
     }
     .mark{
-      width: 42px; height: 42px; border-radius: 14px;
-      background: linear-gradient(135deg, #FFE7C7 0%, #FFD7D0 100%);
-      box-shadow: var(--shadow);
+      width: 44px; height: 44px; border-radius: 16px;
+      background: linear-gradient(135deg, rgba(201,137,82,.25), rgba(185,93,85,.18));
+      border: 1px solid rgba(0,0,0,.04);
+      box-shadow: 0 10px 26px rgba(31,30,28,.08);
       display:grid; place-items:center;
-      border: 1px solid rgba(0,0,0,.03);
     }
-    .mark svg{ width: 26px; height: 26px; opacity:.92; }
-    .brand h1{
-      margin:0; font-size: 18px; letter-spacing:.3px;
+    .mark svg{ width: 26px; height: 26px; opacity:.9; }
+    .brandTitle{
+      margin:0;
+      font-size: 16px;
+      letter-spacing:.6px;
     }
-    .brand small{
-      display:block; margin-top: 2px; color: var(--muted); font-size: 12px;
+    .brandSub{
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--muted);
     }
+
     .nav{
-      display:flex; align-items:center; gap: 10px; flex-wrap: wrap; justify-content:flex-end;
+      display:flex; align-items:center; gap: 10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
     }
-    .nav a{
-      font-size: 13px; color: var(--muted);
-      padding: 8px 10px; border-radius: 999px;
+    .nav a.link{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
       border: 1px solid transparent;
     }
-    .nav a:hover{ border-color: rgba(0,0,0,.06); background: rgba(255,255,255,.45); }
+    .nav a.link:hover{
+      border-color: rgba(0,0,0,.06);
+      background: rgba(255,255,255,.5);
+    }
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap: 8px;
       padding: 12px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.06);
-      background: rgba(255,255,255,.70);
-      box-shadow: 0 6px 18px rgba(43,42,40,.06);
+      border: 1px solid rgba(0,0,0,.07);
+      background: rgba(255,255,255,.75);
+      box-shadow: 0 10px 24px rgba(31,30,28,.06);
       font-weight: 700;
       transition: transform .08s ease, opacity .2s ease;
-      cursor: pointer;
       white-space: nowrap;
     }
     .btn:hover{ opacity:.92; }
     .btn:active{ transform: translateY(1px); }
 
     .btn.primary{
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-      color: #fff;
       border: none;
-      box-shadow: 0 14px 30px rgba(217,121,102,.20);
-    }
-    .btn.primary svg{ fill: #fff; }
-
-    /* Hero */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.25fr .85fr;
-      gap: 18px;
-      margin-top: 12px;
-    }
-    @media (max-width: 860px){
-      .hero{ grid-template-columns: 1fr; }
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      box-shadow: 0 18px 34px rgba(201,137,82,.22);
     }
 
+    /* Layout cards */
     .card{
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.80);
       border: 1px solid rgba(0,0,0,.05);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
-    .heroMain{
-      padding: 26px 22px;
-      position: relative;
-      overflow:hidden;
+
+    /* Hero */
+    .hero{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
     }
-    .softDots{
-      position:absolute; inset:-60px -80px auto auto;
-      width: 220px; height: 220px; border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, rgba(231,169,107,.35), transparent 55%),
-                  radial-gradient(circle at 70% 70%, rgba(217,121,102,.25), transparent 60%);
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+      .brand{ min-width: 0; }
+    }
+    .heroMain{ padding: 28px 24px; position:relative; overflow:hidden; }
+    .glow{
+      position:absolute; inset:-80px -120px auto auto;
+      width: 280px; height: 280px; border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(201,137,82,.30), transparent 58%),
+        radial-gradient(circle at 70% 70%, rgba(185,93,85,.18), transparent 60%);
       filter: blur(2px);
-      transform: rotate(12deg);
+      transform: rotate(10deg);
+      pointer-events:none;
     }
-    .kicker{
+    .label{
       display:inline-flex; align-items:center; gap: 10px;
-      font-size: 12px; color: var(--muted);
-      background: rgba(255,255,255,.65);
-      border: 1px solid rgba(0,0,0,.05);
       padding: 8px 12px;
       border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.06);
+      background: rgba(255,255,255,.65);
+      font-size: 12px;
+      color: var(--muted);
     }
-    .kicker .dot{
+    .dot{
       width: 8px; height: 8px; border-radius: 999px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
     }
-
     .headline{
       margin: 14px 0 10px;
       font-size: 34px;
       line-height: 1.25;
-      letter-spacing: .2px;
+      letter-spacing: .3px;
     }
     @media (max-width: 520px){
       .headline{ font-size: 28px; }
     }
     .sub{
-      margin: 0;
+      margin:0;
       color: var(--muted);
-      max-width: 42ch;
+      max-width: 46ch;
+      font-size: 15px;
     }
-
     .heroActions{
       display:flex; gap: 10px; flex-wrap: wrap;
       margin-top: 18px;
     }
-
-    .heroSide{
-      padding: 22px 18px;
-      display:flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .miniTitle{
-      margin:0;
-      font-size: 15px;
-      letter-spacing:.2px;
-    }
-    .bullets{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .bullets li{ margin: 8px 0; }
-
-    /* Sections */
-    .section{
-      margin-top: 18px;
-      padding: 22px;
-    }
-    .section h2{
-      margin: 0 0 10px;
-      font-size: 18px;
-      letter-spacing:.2px;
-    }
-    .section p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 14.5px;
-    }
-
-    /* Feature grid */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 12px;
-    }
-    @media (max-width: 860px){
-      .grid{ grid-template-columns: 1fr; }
-    }
-    .feature{
-      padding: 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.65);
-      border: 1px solid rgba(0,0,0,.05);
-    }
-    .feature h3{ margin: 0 0 6px; font-size: 15px; }
-    .feature p{ margin:0; color: var(--muted); font-size: 13.5px; }
-
-    .badgeRow{
-      display:flex; gap: 8px; flex-wrap: wrap;
-      margin-top: 12px;
-    }
+    .badges{ display:flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
     .badge{
       font-size: 12px;
+      color: var(--muted);
       padding: 7px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.05);
+      border: 1px solid rgba(0,0,0,.06);
       background: rgba(255,255,255,.55);
-      color: var(--muted);
     }
 
-    /* Product cards */
-    .products{
+    .heroSide{ padding: 22px 18px; display:flex; flex-direction:column; gap: 12px; }
+    .sideTitle{ margin:0; font-size: 14px; letter-spacing:.3px; }
+    .sideList{
+      margin:0; padding-left: 18px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .sideList li{ margin: 8px 0; }
+    .miniCard{
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,.06);
+      background: rgba(255,255,255,.60);
+      padding: 14px;
+    }
+    .miniCard b{ font-size: 13px; }
+    .miniCard p{ margin: 6px 0 0; color: var(--muted); font-size: 13.2px; }
+
+    /* Sections */
+    .section{ margin-top: 14px; padding: 22px; }
+    .section h2{
+      margin:0 0 10px;
+      font-size: 18px;
+      letter-spacing:.3px;
+    }
+    .section p{ margin:0; color: var(--muted); font-size: 14.5px; }
+
+    /* Grids */
+    .grid3{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 12px;
       margin-top: 12px;
     }
     @media (max-width: 980px){
-      .products{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
     }
-    .pCard{
-      padding: 16px;
+
+    .tile{
       border-radius: 16px;
-      border: 1px solid rgba(0,0,0,.05);
-      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(0,0,0,.06);
+      background: rgba(255,255,255,.65);
+      padding: 16px;
+      min-height: 140px;
       display:flex;
       flex-direction: column;
-      gap: 10px;
-      min-height: 160px;
+      gap: 8px;
     }
-    .pTop{
-      display:flex; align-items:center; justify-content:space-between;
-      gap: 10px;
-    }
-    .pName{ margin:0; font-size: 15px; }
-    .pill{
-      font-size: 12px; color: #fff;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      white-space: nowrap;
-    }
-    .pDesc{ margin:0; color: var(--muted); font-size: 13.5px; }
-    .pLink{
+    .tile h3{ margin:0; font-size: 15px; }
+    .tile p{ margin:0; color: var(--muted); font-size: 13.5px; }
+
+    .tile a{
       margin-top: auto;
       font-weight: 700;
-      color: var(--ink);
+      opacity: .92;
       display:inline-flex; align-items:center; gap: 6px;
-      opacity:.92;
     }
-    .pLink:hover{ opacity:1; }
+    .tile a:hover{ opacity:1; }
 
-    /* Testimonials */
-    .quotes{
+    /* Quotes */
+    .grid2{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin-top: 12px;
     }
     @media (max-width: 860px){
-      .quotes{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
     }
     .quote{
-      padding: 16px;
       border-radius: 16px;
-      border: 1px solid rgba(0,0,0,.05);
+      border: 1px solid rgba(0,0,0,.06);
       background: rgba(255,255,255,.65);
+      padding: 16px;
     }
     .quote p{ margin:0; color: var(--muted); font-size: 13.5px; }
-    .quote b{ color: var(--ink); font-size: 12.5px; display:block; margin-top: 10px; }
+    .quote b{ display:block; margin-top: 10px; font-size: 12.5px; color: var(--ink); }
 
-    /* Footer CTA */
+    /* CTA + footer */
     .cta{
-      margin-top: 18px;
+      margin-top: 14px;
       padding: 22px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap: 12px;
       flex-wrap: wrap;
-      background: linear-gradient(135deg, rgba(231,169,107,.18), rgba(217,121,102,.14));
-      border: 1px solid rgba(0,0,0,.05);
+      background: linear-gradient(135deg, rgba(201,137,82,.16), rgba(185,93,85,.12));
+      border: 1px solid rgba(0,0,0,.06);
     }
     .cta h2{ margin:0; font-size: 18px; }
-    .cta p{ margin: 4px 0 0; color: var(--muted); font-size: 13.5px; }
+    .cta p{ margin: 6px 0 0; color: var(--muted); font-size: 13.5px; }
 
     footer{
-      margin-top: 18px;
+      margin-top: 16px;
+      text-align:center;
       color: var(--muted);
       font-size: 12px;
-      text-align:center;
-      padding: 18px 0 0;
+      padding-top: 12px;
     }
     .links{
-      display:flex; justify-content:center; gap: 14px; flex-wrap: wrap;
+      display:flex; justify-content:center; gap: 12px; flex-wrap: wrap;
       margin-top: 10px;
     }
     .links a{
       padding: 8px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.05);
+      border: 1px solid rgba(0,0,0,.06);
       background: rgba(255,255,255,.45);
     }
   </style>
@@ -325,175 +298,158 @@
 
 <body>
   <div class="wrap">
-    <!-- Top bar -->
-    <div class="topbar">
+    <!-- Topbar -->
+    <header class="topbar">
       <div class="brand">
         <div class="mark" aria-hidden="true">
-          <!-- 簡單貓咪 icon（不用你的圖片） -->
+          <!-- 極簡貓 icon（不使用你的圖） -->
           <svg viewBox="0 0 24 24">
             <path d="M6.5 9.2 4.7 6.1c-.4-.7-1.5-.4-1.5.4V12c0 6 3.9 9 8.8 9s8.8-3 8.8-9V6.5c0-.8-1.1-1.1-1.5-.4l-1.8 3.1C15.9 8.4 14 8 12 8s-3.9.4-5.5 1.2zM8.8 13.2c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1 .4-1 1-1zm6.4 0c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1 .4-1 1-1zM12 18c1.1 0 2.1-.5 2.8-1.2.3-.3.3-.8 0-1.1s-.8-.3-1.1 0c-.4.4-1 .7-1.7.7s-1.3-.3-1.7-.7c-.3-.3-.8-.3-1.1 0s-.3.8 0 1.1C9.9 17.5 10.9 18 12 18z"/>
           </svg>
         </div>
         <div>
-          <h1>TwoCats</h1>
-          <small>溫暖日系｜貓咪生活選物</small>
+          <div class="brandTitle">TwoCats</div>
+          <div class="brandSub">貓咪生活選物品牌｜溫暖日系設計</div>
         </div>
       </div>
 
-      <div class="nav">
-        <a href="#about">品牌</a>
-        <a href="#featured">精選</a>
-        <a href="#why">為什麼 TwoCats</a>
-        <a href="#reviews">好評</a>
-        <a class="btn primary" href="https://shopee.tw/你的賣場連結" target="_blank" rel="noopener">
-          前往 Shopee
-          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z" fill="currentColor"/>
-          </svg>
-        </a>
-      </div>
-    </div>
+      <nav class="nav">
+        <a class="link" href="#about">品牌</a>
+        <a class="link" href="#featured">精選</a>
+        <a class="link" href="#why">理念</a>
+        <a class="link" href="#reviews">評價</a>
+        <a class="btn primary" href="https://shopee.tw/你的賣場連結" target="_blank" rel="noopener">前往 Shopee</a>
+      </nav>
+    </header>
 
     <!-- Hero -->
-    <div class="hero">
+    <section class="hero">
       <div class="card heroMain">
-        <div class="softDots" aria-hidden="true"></div>
+        <div class="glow"></div>
 
-        <div class="kicker">
-          <span class="dot"></span>
-          <span>為貓咪日常，做更剛好的設計</span>
-        </div>
-
-        <h2 class="headline">把可愛放進生活，<br>也把「好用」留給貓。</h2>
+        <div class="label"><span class="dot"></span><span>TwoCats Official</span></div>
+        <h1 class="headline">為貓咪日常，<br>做更剛好的選擇。</h1>
         <p class="sub">
-          TwoCats 專注貓咪行為與居家細節，從抓、睡、吃到陪伴，做出溫柔耐用、看起來也舒服的選物。
+          TwoCats 以貓咪行為與居家細節為核心，挑選與設計更耐用、更舒服、也更融入生活的貓用品。
+          這裡是品牌官方入口：主打推薦、使用建議、活動與合作資訊，將在此持續更新。
         </p>
 
         <div class="heroActions">
-          <a class="btn primary" href="https://shopee.tw/你的賣場連結" target="_blank" rel="noopener">立即逛逛 Shopee</a>
-          <a class="btn" href="#featured">先看精選</a>
-          <a class="btn" href="#about">了解品牌</a>
+          <a class="btn primary" href="https://shopee.tw/你的賣場連結" target="_blank" rel="noopener">立即逛逛</a>
+          <a class="btn" href="#featured">查看精選</a>
+          <a class="btn" href="#about">品牌介紹</a>
         </div>
 
-        <div class="badgeRow">
-          <span class="badge">台灣賣家安心服務</span>
-          <span class="badge">日系溫暖風格</span>
-          <span class="badge">以貓行為為出發點</span>
+        <div class="badges">
+          <span class="badge">台灣賣家｜售後好溝通</span>
+          <span class="badge">日系配色｜更融入居家</span>
+          <span class="badge">重視材質與耐用度</span>
         </div>
       </div>
 
-      <div class="card heroSide">
-        <h3 class="miniTitle">我們在意的 3 件事</h3>
-        <ul class="bullets">
-          <li><b>貓咪真的會用</b>：不是只有好看，是真正能融入牠的習慣。</li>
-          <li><b>你家看起來舒服</b>：不突兀的配色與線條，放在家裡很自然。</li>
-          <li><b>售後有溫度</b>：遇到問題，不推責，陪你把事情處理好。</li>
+      <aside class="card heroSide">
+        <h2 class="sideTitle">品牌標準（Three Standards）</h2>
+        <ul class="sideList">
+          <li><b>可使用性</b>：以貓咪習慣為出發點，讓「真的會用」成為基本。</li>
+          <li><b>居家感</b>：不突兀的線條與配色，擺在家裡也自然好看。</li>
+          <li><b>服務</b>：遇到問題先解決，讓你有被好好對待的感覺。</li>
         </ul>
 
-        <div class="section card" style="padding:16px; margin:0;">
-          <h2 style="font-size:15px; margin:0 0 8px;">今天想找什麼？</h2>
-          <p style="margin:0; font-size:13.5px;">
-            抓板｜餐碗｜居家小物｜（未來：貓砂 / 分裝）
-          </p>
+        <div class="miniCard">
+          <b>主打類別</b>
+          <p>抓板｜餐碗｜居家小物｜（未來：貓砂分裝）</p>
         </div>
-      </div>
-    </div>
+
+        <div class="miniCard">
+          <b>合作聯絡</b>
+          <p>品牌合作 / 團購 / KOL：<a href="mailto:你的信箱"><u>你的信箱</u></a></p>
+        </div>
+      </aside>
+    </section>
 
     <!-- About -->
-    <div id="about" class="card section">
+    <section id="about" class="card section">
       <h2>品牌故事</h2>
       <p>
-        TwoCats 是一個溫暖的小品牌。靈感來自日常與貓咪的相處：牠們會挑選自己喜歡的觸感、角落與高度，
-        所以我們用「貓咪行為」當起點，去做每一個更剛好的選擇。
+        TwoCats 是一個以「貓咪的真實需求」與「人類的生活美感」為交集的選物品牌。
+        我們相信：好的貓用品不只可愛，更應該耐用、好清潔、並自然融入居家。
         <br><br>
-        你可以把這裡當成 TwoCats 的「官方入口」：最新主打、使用建議、活動與合作，都會慢慢在這裡長出來。
+        我們把每一次上架，當作一次更精準的選擇：材質、結構、使用場景與售後，都必須對得起你的信任。
       </p>
-    </div>
+    </section>
 
-    <!-- Featured products -->
-    <div id="featured" class="card section">
+    <!-- Featured -->
+    <section id="featured" class="card section">
       <h2>精選主打</h2>
-      <p>先放 3 個最強的就好：讓新客快速理解你在賣什麼、為什麼值得買。</p>
+      <p>先用 3 個代表作建立「品牌印象」。你把連結換成你的 Shopee 商品即可。</p>
 
-      <div class="products">
-        <div class="pCard">
-          <div class="pTop">
-            <h3 class="pName">花花抓板（主打）</h3>
-            <span class="pill">人氣</span>
-          </div>
-          <p class="pDesc">抓感扎實、圖案可愛、擺在家裡也好看。適合日常放鬆與磨爪。</p>
-          <a class="pLink" href="https://shopee.tw/你的商品連結1" target="_blank" rel="noopener">
-            去看商品 →</a>
+      <div class="grid3">
+        <div class="tile">
+          <h3>花花抓板（主打）</h3>
+          <p>抓感扎實、圖案克制可愛、擺在家裡不突兀；適合日常磨爪與舒壓。</p>
+          <a href="https://shopee.tw/你的商品連結1" target="_blank" rel="noopener">查看商品 →</a>
         </div>
 
-        <div class="pCard">
-          <div class="pTop">
-            <h3 class="pName">餐碗 / 木架碗</h3>
-            <span class="pill">推薦</span>
-          </div>
-          <p class="pDesc">高度與穩定度更友善，吃飯舒服、清潔也方便，適合日常長期使用。</p>
-          <a class="pLink" href="https://shopee.tw/你的商品連結2" target="_blank" rel="noopener">
-            去看商品 →</a>
+        <div class="tile">
+          <h3>餐碗 / 木架碗</h3>
+          <p>重視穩定與清潔便利；以更友善的高度，讓用餐更舒服。</p>
+          <a href="https://shopee.tw/你的商品連結2" target="_blank" rel="noopener">查看商品 →</a>
         </div>
 
-        <div class="pCard">
-          <div class="pTop">
-            <h3 class="pName">雙面抓板 / 配件</h3>
-            <span class="pill">加購</span>
-          </div>
-          <p class="pDesc">可以當備用、或搭配主打商品一起買。適合想一次補齊的你。</p>
-          <a class="pLink" href="https://shopee.tw/你的商品連結3" target="_blank" rel="noopener">
-            去看商品 →</a>
+        <div class="tile">
+          <h3>雙面抓板 / 配件</h3>
+          <p>適合加購備用或搭配主打一起補齊；讓日常維持在最順手的狀態。</p>
+          <a href="https://shopee.tw/你的商品連結3" target="_blank" rel="noopener">查看商品 →</a>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Why -->
-    <div id="why" class="card section">
-      <h2>為什麼選 TwoCats</h2>
-      <p>讓第一次來的人，立刻知道你跟一般賣家不一樣。</p>
+    <section id="why" class="card section">
+      <h2>品牌理念</h2>
+      <p>把你「跟一般賣家不同」的點，用更專業的語言講清楚。</p>
 
-      <div class="grid">
-        <div class="feature">
-          <h3>以貓行為為設計起點</h3>
-          <p>抓、躺、吃的高度與觸感，不用賭運氣，用實際使用思維去調整。</p>
+      <div class="grid3">
+        <div class="tile">
+          <h3>以使用情境定義產品</h3>
+          <p>不是「什麼都賣」，而是聚焦抓、吃、休息等高頻場景，讓選擇更精準。</p>
         </div>
-        <div class="feature">
-          <h3>日系溫暖的家居感</h3>
-          <p>不突兀、看起來舒服，放在家裡像是原本就該在那裡。</p>
+        <div class="tile">
+          <h3>材質與耐用度優先</h3>
+          <p>用更合理的結構與做工，降低耗損與踩雷機率，適合長期使用。</p>
         </div>
-        <div class="feature">
-          <h3>台灣賣家，售後好溝通</h3>
-          <p>遇到問題先解決，不丟給你一堆流程，讓你安心。</p>
+        <div class="tile">
+          <h3>售後流程清楚</h3>
+          <p>問題可追蹤、溝通有效率，讓你感覺「買得安心」而不是靠運氣。</p>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Reviews -->
-    <div id="reviews" class="card section">
-      <h2>用戶好評（可先用示意，之後換成真實評價）</h2>
-      <p>你可以把 Shopee 評價挑 2-4 則貼上來（不需要全貼）。</p>
+    <section id="reviews" class="card section">
+      <h2>用戶回饋</h2>
+      <p>你之後把 Shopee 評價挑 2–4 則貼上來就會很有說服力（不用多）。</p>
 
-      <div class="quotes">
+      <div class="grid2">
         <div class="quote">
-          <p>「抓板很扎實，貓咪馬上就上去抓，圖案也很可愛，擺家裡不突兀。」</p>
-          <b>— 買家 A</b>
+          <p>「抓板很扎實，貓咪立刻就開始用。外觀也很融入居家，放客廳不突兀。」</p>
+          <b>— 買家回饋</b>
         </div>
         <div class="quote">
-          <p>「包裝很用心，問題詢問也回很快。收到後質感比想像中更好。」</p>
-          <b>— 買家 B</b>
+          <p>「包裝用心、回覆速度快。遇到問題有協助處理，整體體驗很安心。」</p>
+          <b>— 買家回饋</b>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Bottom CTA -->
-    <div class="card cta">
+    <!-- CTA -->
+    <section class="card cta">
       <div>
-        <h2>準備好把家變成更舒服的貓咪空間了嗎？</h2>
-        <p>從主打商品開始逛，最快理解 TwoCats 的風格與用心。</p>
+        <h2>從精選主打開始，建立你家的貓咪舒適區</h2>
+        <p>更耐用、更舒服、更融入生活的貓用品，從 TwoCats 開始。</p>
       </div>
-      <a class="btn primary" href="https://shopee.tw/你的賣場連結" target="_blank" rel="noopener">立即前往 Shopee</a>
-    </div>
+      <a class="btn primary" href="https://shopee.tw/你的賣場連結" target="_blank" rel="noopener">前往官方賣場</a>
+    </section>
 
     <footer>
       © <span id="year"></span> TwoCats. All rights reserved.
